@@ -57,6 +57,7 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', {})
 vim.keymap.set('n', '<C-z>', ':vertical resize -2<CR>', {})
 vim.keymap.set('n', '<C-x>', ':vertical resize +2<CR>', {})
 
+
 -- Treesitter config
 local config = require("nvim-treesitter.configs")
 config.setup({
