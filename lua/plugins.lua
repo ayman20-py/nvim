@@ -132,11 +132,15 @@ return {
           -- documentation = cmp.config.window.bordered(),
         },
 
-        mappings = cmp.mapping.preset.insert({
-          ["<Tab>"] = cmp.select_next_item(),
-
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
+        mapping = {
+          ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          },
+          -- ['<tab>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 's', 'c' }),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<tab>'] = cmp.mapping.select_next_item(),
+        },
 
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
